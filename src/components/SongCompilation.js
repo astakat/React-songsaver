@@ -10,14 +10,32 @@ class SongCompilation extends React.Component {
         this.state = 
         {
           songs: [
-            {id: 1, title: "I would die for you"}
+            {id: 1,
+              title: "I would die for you",
+              artist: "Prince"}
         ]
         }
-    
+        
       }
+
+      
+   
     
       addSong = (song) => {
-                            // do something to change the state
+        
+          console.log("adding song...", song)
+
+          const newSong = {
+            id: this.state.songs.length+1,
+            title: song.title,
+            artist: song.artist
+          }
+
+          this.setState(prevState => ({
+            songs: [...this.state.songs, newSong]
+          }
+          ))
+        
       }
     
       render() {
