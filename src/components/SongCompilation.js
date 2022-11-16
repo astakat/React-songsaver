@@ -12,7 +12,9 @@ class SongCompilation extends React.Component {
           songs: [
             {id: 1,
               title: "I would die for you",
-              artist: "Prince"}
+              artist: "Prince",
+              genre: "funky pop music",
+              rating: "*****"}
         ]
         }
         
@@ -28,7 +30,9 @@ class SongCompilation extends React.Component {
           const newSong = {
             id: this.state.songs.length+1,
             title: song.title,
-            artist: song.artist
+            artist: song.artist,
+            genre: song.genre,
+            rating: song.rating
           }
 
           this.setState(prevState => ({

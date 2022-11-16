@@ -8,7 +8,9 @@ class SongForm extends React.Component{
         super(props)
         this.state = {
             title: "",
-            artist: ""
+            artist: "",
+            genre: "",
+            rating: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +29,12 @@ class SongForm extends React.Component{
 
       console.log('handleSubmit: ', event);
 
-      let song = {title: event.target.title.value, artist: event.target.artist.value};
+      let song = {
+        title: event.target.title.value, 
+        artist: event.target.artist.value, 
+        genre: event.target.genre.value,
+        rating: event.target.rating.value
+      };
       console.log(song)
       event.preventDefault();
 
@@ -39,24 +46,35 @@ class SongForm extends React.Component{
        
         return (
           <form onSubmit={this.handleSubmit}>
+            <h1>SONGSAVER</h1>
             <label>
-              Add a song:
               <input 
               type="text" 
               name="title"
               placeholder="song title here"
               value={this.state.title} 
               onChange={this.handleChange} />
-              Add an artist:
               <input 
               type="text" 
               name="artist"
               placeholder="artist name here"
               value={this.state.artist} 
               onChange={this.handleChange} />
+              <input 
+              type="text" 
+              name="genre"
+              placeholder="genre"
+              value={this.state.genre} 
+              onChange={this.handleChange} />
+              <input 
+              type="text" 
+              name="rating"
+              placeholder="rating"
+              value={this.state.rating} 
+              onChange={this.handleChange} />
             </label>
-            <input type ="submit" value = "Add" />
-            <h1>{this.state.title} {this.state.artist}</h1>
+            <input type ="submit" value = "Add song" />
+            {/* <h1>{this.state.title} {this.state.artist}</h1> */}
           </form>
         );
       }
