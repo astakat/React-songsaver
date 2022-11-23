@@ -1,6 +1,6 @@
 import SongCompilation from './components/SongCompilation';
 import Navbar from './Navbar';
-import AboutUs from "./routes/AboutUs";
+import AboutUs from "./navbar/routes/AboutUs";
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 

@@ -14,15 +14,17 @@ class SongCompilation extends React.Component {
               title: "I would die for you",
               artist: "Prince",
               genre: "funky pop music",
+              rating: "*****"},
+              {id: 2,
+              title: "4US",
+              artist: "Doe Maar",
+              genre: "Nederpop",
               rating: "*****"}
         ]
         }
-        
+        this.removeSong = this.removeSong.bind(this);
       }
 
-      
-   
-    
       addSong = (song) => {
         
           console.log("adding song...", song)
@@ -39,22 +41,28 @@ class SongCompilation extends React.Component {
             songs: [...this.state.songs, newSong]
           }
           ))
+
+      
         
       }
+      
+      removeSong = (song) => {
+        
+        console.log("removeSong", song)
+    
+            this.setState(prevState => ({
+              songs: this.state.songs.filter(function(item) { 
+              return item.id !== song.id 
+          })}));
+              
+      }    
+
     
       render() {
         return (
           <div>
                   <SongForm addSong={this.addSong}/>
-                                            <table style={{width: "100%"}}>
-                            <tr className="song-header">  
-                                    <th className="song-row__item">Song</th>
-                                    <th className="song-row__item">Artist</th>
-                                    <th className="song-row__item">Genre</th>
-                                    <th className="song-row__item">Rating</th>
-                                  </tr>
-                                    </table>
-                  <SongList songs={this.state.songs}/>
+                  <SongList songs={this.state.songs} removeSong={this.removeSong}/>
           </div>
         );
       }
